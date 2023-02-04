@@ -37,6 +37,7 @@ public class Emailer {
 		PropertyHelper propertyHelper=new PropertyHelper("emailerConfig.properties");
 		final String user = propertyHelper.getPropertyValue("username");
 		
+		
 		//final String password = Emailer.decodePassword("");
 		final String password=propertyHelper.getPropertyValue("password");
 		
