@@ -40,9 +40,7 @@ public class Emailer {
 		
 		//final String password = Emailer.decodePassword("");
 		final String password=propertyHelper.getPropertyValue("password");
-		
-		//String host = "smtp.office365.com";
-		String host="smtp.gmail.com";
+		String host=propertyHelper.getPropertyValue("host");
 		
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
@@ -65,7 +63,7 @@ public class Emailer {
 		MimeMessage message = new MimeMessage(session);
 
 		try {
-			message.setFrom((Address) new InternetAddress("aniljain1982@gmail.com"));
+			message.setFrom((Address) new InternetAddress(propertyHelper.getPropertyValue("setFrom")));
 			InternetAddress[] recipientAddress = new InternetAddress[(global.getRecipients().split(",")).length];
 			int counter = 0;
 			for (String toRcipient : global.getRecipients().split(",")) {
