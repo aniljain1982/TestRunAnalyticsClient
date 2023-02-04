@@ -18,6 +18,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 import com.automation.helper.GeneralHelper;
+import com.automation.helper.PropertyHelper;
 
 public class Emailer {
 
@@ -33,9 +34,11 @@ public class Emailer {
 	}
 
 	public void sendEmail(GlobalPOJO global) throws Exception {
-		final String user = "aniljain1982@gmail.com";
-		//final String password = Emailer.decodePassword("QzBuZ2EkJkAyMDIx");
-		final String password="ftjpkgtyyjiwnxgt";
+		PropertyHelper propertyHelper=new PropertyHelper("emailerConfig.properties");
+		final String user = propertyHelper.getPropertyValue("username");
+		
+		//final String password = Emailer.decodePassword("");
+		final String password=propertyHelper.getPropertyValue("password");
 		
 		//String host = "smtp.office365.com";
 		String host="smtp.gmail.com";
